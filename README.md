@@ -18,10 +18,12 @@ Visit the live site at: **https://m-elfeki.github.io** (or https://melfeki.githu
 
 ```
 melfeki.github.io/
-├── index.html      # Main HTML file
-├── styles.css      # Stylesheet with modern design
-├── script.js       # JavaScript for interactivity
-└── README.md       # This file
+├── index.html              # Main HTML file
+├── styles.css              # Stylesheet with modern design
+├── script.js               # JavaScript for interactivity
+├── deploy.sh               # Automated deployment script
+├── setup-github-auth.sh    # One-time GitHub auth setup
+└── README.md               # This file
 ```
 
 ## 🛠️ Customization
@@ -76,7 +78,27 @@ Your website will be available at:
 
 ## 🔄 Updating Your Website
 
-Whenever you make changes to your website:
+### Quick Deploy (Recommended)
+
+Use the automated deploy script for a one-command deployment:
+
+```bash
+# Deploy with commit message
+./deploy.sh "Update about section"
+
+# Or run without parameters to be prompted for commit message
+./deploy.sh
+```
+
+The script will automatically:
+- ✅ Stage all changes
+- ✅ Commit with your message
+- ✅ Push to GitHub
+- ✅ Show deployment status
+
+### Manual Deployment
+
+If you prefer to do it manually:
 
 1. Edit the files locally
 2. Commit and push the changes:
@@ -86,6 +108,20 @@ Whenever you make changes to your website:
    git push origin main
    ```
 3. GitHub Pages will automatically rebuild your site within a few minutes
+
+### First-Time Setup
+
+If you haven't set up GitHub authentication yet:
+
+```bash
+# Store your GitHub token securely in macOS Keychain
+./setup-github-auth.sh M-Elfeki your_github_token_here
+
+# Or run interactively (will prompt for username and token)
+./setup-github-auth.sh
+```
+
+After setup, you can use `./deploy.sh` anytime!
 
 ## 📧 Contact
 
