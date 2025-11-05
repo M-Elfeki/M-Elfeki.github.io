@@ -38,11 +38,10 @@ exclude:
   - setup-github-auth.sh
   - .git
   - .gitignore
+  - _pages
 
 # Collections
 collections:
-  pages:
-    output: true
   projects:
     output: true
     sort_by: date
