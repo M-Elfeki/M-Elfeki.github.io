@@ -11,11 +11,8 @@ Visit the live site at: **https://melfeki.github.io**
 - **Modern Design**: Clean, professional design inspired by al-folio theme
 - **Jekyll-Powered**: Built with Jekyll static site generator
 - **Responsive**: Fully responsive and works great on all devices (mobile, tablet, desktop)
-- **Publications**: BibTeX integration for automatic publication listings
-- **Blog Support**: Write blog posts in Markdown
-- **News Feed**: Automatically display latest news and updates
+- **Blog Support**: Write blog posts in Markdown (Thoughts page)
 - **Projects Showcase**: Display your projects with images and links
-- **Math Support**: MathJax integration for mathematical equations
 - **SEO Optimized**: Built-in SEO tags and sitemap generation
 - **Atom Feed**: RSS-like feed for blog posts
 
@@ -23,12 +20,10 @@ Visit the live site at: **https://melfeki.github.io**
 
 ```
 melfeki.github.io/
-├── _bibliography/         # BibTeX files for publications
 ├── _data/                 # Data files (YAML)
 ├── _includes/             # Reusable HTML components
 ├── _layouts/              # Page layouts
-├── _news/                 # News items (Markdown)
-├── _pages/                # Static pages (About, Research, etc.)
+├── _pages/                # Static pages (About, Projects, Thoughts, Contact)
 ├── _posts/                # Blog posts (Markdown)
 ├── _projects/             # Project showcase (Markdown)
 ├── _sass/                 # SCSS stylesheets
@@ -40,6 +35,8 @@ melfeki.github.io/
 ├── _config.yml            # Jekyll configuration
 ├── Gemfile                # Ruby dependencies
 ├── index.html             # Homepage
+├── deploy.sh              # Deployment script
+├── setup-github-auth.sh   # GitHub authentication setup
 └── README.md              # This file
 ```
 
@@ -47,7 +44,7 @@ melfeki.github.io/
 
 ### Prerequisites
 
-- Ruby (2.7 or higher)
+- Ruby (2.6 or higher)
 - Bundler gem
 
 ### Installation
@@ -63,12 +60,12 @@ melfeki.github.io/
    bundle install
    ```
 
-3. **Build and serve locally**:
+3. **Run the site locally**:
    ```bash
    bundle exec jekyll serve
    ```
 
-4. **View the site**: Open [http://localhost:4000](http://localhost:4000) in your browser
+4. **View your site**: Open [http://localhost:4000](http://localhost:4000) in your browser
 
 ## 📝 Customization
 
@@ -76,26 +73,9 @@ melfeki.github.io/
 
 Edit `_config.yml` to update:
 - Name, title, and description
-- Email, GitHub, LinkedIn, Google Scholar IDs
+- Email, LinkedIn, Google Scholar IDs
 - Social media links
 - Navigation menu
-
-### Add Publications
-
-1. Edit `_bibliography/papers.bib` to add your publications in BibTeX format
-2. Publications will automatically appear on the Publications page
-
-### Add News Items
-
-Create new files in `_news/` directory with the format:
-```markdown
----
-title: Your News Title
-date: 2024-01-01
----
-
-Your news content here.
-```
 
 ### Add Projects
 
@@ -103,24 +83,26 @@ Create new files in `_projects/` directory:
 ```markdown
 ---
 title: Project Name
-date: 2024-01-01
+date: YYYY-MM-DD
 image: /assets/img/project-image.png
 links:
   - name: GitHub
     url: https://github.com/example
+  - name: Demo
+    url: https://example.com
 ---
 
-Project description here.
+Your project description here.
 ```
 
-### Add Blog Posts
+### Add Blog Posts (Thoughts)
 
-Create new files in `_posts/` directory with the format:
+Create new files in `_posts/` directory with the format `YYYY-MM-DD-title.md`:
 ```markdown
 ---
 layout: post
 title: Your Post Title
-date: 2024-01-01
+date: YYYY-MM-DD
 tags: [tag1, tag2]
 ---
 
@@ -136,31 +118,28 @@ Your post content here.
 ### Update Pages
 
 Edit files in `_pages/` directory:
-- `about.md` - About page
-- `research.md` - Research interests
-- `publications.md` - Publications (auto-generated from BibTeX)
+- `about.md` - About page content
 - `projects.md` - Projects showcase
-- `news.md` - News listing
+- `thoughts.md` - Blog posts listing
 - `contact.md` - Contact information
 
 ## 📝 Publishing to GitHub Pages
 
-### Option 1: Automatic Deployment (Recommended)
+### Quick Deploy (Recommended)
 
-GitHub Pages will automatically build your Jekyll site when you push to the `main` branch.
+Use the automated deploy script:
 
-1. **Enable GitHub Pages**:
-   - Go to your repository settings
-   - Navigate to Pages
-   - Select "Deploy from a branch"
-   - Choose `main` branch and `/ (root)` folder
+```bash
+./deploy.sh "Your commit message"
+```
 
-2. **Deploy using the deploy script**:
-   ```bash
-   ./deploy.sh "Your commit message"
-   ```
+The script will automatically:
+- ✅ Stage all changes
+- ✅ Commit with your message
+- ✅ Push to GitHub
+- ✅ Show deployment status
 
-### Option 2: Manual Deployment
+### Manual Deployment
 
 ```bash
 git add .
@@ -170,9 +149,19 @@ git push origin main
 
 GitHub Pages will automatically rebuild your site within a few minutes.
 
-### Option 3: GitHub Actions (Advanced)
+### First-Time Setup
 
-For more control, you can set up GitHub Actions to build and deploy. The site will be built using the same Jekyll configuration locally and on GitHub.
+If you haven't set up GitHub authentication yet:
+
+```bash
+# Store your GitHub token securely in macOS Keychain
+./setup-github-auth.sh M-Elfeki your_github_token_here
+
+# Or run interactively (will prompt for username and token)
+./setup-github-auth.sh
+```
+
+After setup, you can use `./deploy.sh` anytime!
 
 ## 🔧 Development
 
@@ -190,20 +179,12 @@ The site will be built to `_site/` directory.
 bundle exec jekyll serve --livereload
 ```
 
-### Check for broken links
-
-```bash
-bundle exec jekyll build
-# Then use a link checker tool
-```
-
 ## 📦 Dependencies
 
 Key Jekyll plugins used:
 - `jekyll-feed` - Atom feed generation
 - `jekyll-sitemap` - Sitemap generation
 - `jekyll-seo-tag` - SEO optimization
-- `jekyll-scholar` - BibTeX integration for publications
 - `jekyll-paginate-v2` - Pagination support
 
 ## 🎨 Theme Customization
