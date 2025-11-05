@@ -1,7 +1,7 @@
 @import 'variables';
 
 section {
-  padding: 80px 0;
+  padding: 60px 0;
   
   &:nth-child(even) {
     background-color: $bg-light;
@@ -9,14 +9,14 @@ section {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   text-align: center;
   color: $text-color;
   
   @media (max-width: $mobile) {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 2rem;
   }
 }
@@ -26,188 +26,26 @@ section {
   margin-top: 2rem;
 }
 
-// Research Section
-.research-interests,
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
 
-.research-item {
-  padding: 2rem;
-  background-color: $bg-color;
-  border: 1px solid $border-color;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-color: $primary-color;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: $primary-color;
-  }
-  
-  p {
-    color: $text-light;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-}
 
-// News Section
-.news-preview {
-  background-color: $bg-light;
-}
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.news-item {
-  display: flex;
-  gap: 2rem;
-  padding: 1.5rem;
-  background-color: $bg-color;
-  border-radius: 8px;
-  border-left: 4px solid $primary-color;
-  
-  @media (max-width: $mobile) {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-.news-date {
-  font-size: 0.875rem;
-  color: $text-light;
-  font-weight: 500;
-  white-space: nowrap;
-  min-width: 120px;
-}
-
-.news-content {
-  flex: 1;
-}
-
-.news-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: $text-color;
-}
-
-.news-excerpt {
-  color: $text-light;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-}
-
-// Publications
-.publications-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.publication-item {
-  padding: 2rem;
-  background-color: $bg-color;
-  border: 1px solid $border-color;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  margin-bottom: 2rem;
-  
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: $text-color;
-  }
-  
-  .authors {
-    color: $text-light;
-    margin-bottom: 0.25rem;
-  }
-  
-  .venue {
-    color: $text-light;
-    font-style: italic;
-    margin-bottom: 1rem;
-    font-size: 0.9375rem;
-  }
-  
-  .abstract {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    
-    summary {
-      cursor: pointer;
-      color: $primary-color;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      
-      &:hover {
-        color: $secondary-color;
-      }
-    }
-    
-    p {
-      color: $text-light;
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      margin-top: 0.5rem;
-    }
-  }
-}
-
-.publication-links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.pub-link {
-  color: $primary-color;
-  text-decoration: none;
-  font-size: 0.9375rem;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
-  
-  &:hover {
-    border-bottom-color: $primary-color;
-  }
-}
 
 // Projects
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .project-card {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: $bg-color;
   border: 1px solid $border-color;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  transition: all 0.2s ease;
   
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: $primary-color;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -278,16 +116,16 @@ section {
 
 .page-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
 .page-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: $text-light;
 }
 
@@ -298,11 +136,13 @@ section {
   h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
   
   h3 {
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -313,20 +153,20 @@ section {
 
 .post-header {
   text-align: center;
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid $border-color;
 }
 
 .post-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .post-meta {
   color: $text-light;
-  font-size: 0.9375rem;
-  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
 }
 
 .post-tags {
@@ -353,11 +193,13 @@ section {
   h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
   
   h3 {
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
+    font-size: 1.25rem;
   }
   
   img {
@@ -368,17 +210,6 @@ section {
   }
 }
 
-// Related Posts
-.related-posts {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid $border-color;
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-}
 
 // Latest Thoughts Section
 .latest-thoughts {
@@ -387,8 +218,8 @@ section {
 
 .thoughts-preview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
   
   @media (max-width: $mobile) {
@@ -397,16 +228,15 @@ section {
 }
 
 .thought-preview-item {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: $bg-color;
   border: 1px solid $border-color;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  transition: all 0.2s ease;
   
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-color: $primary-color;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -452,7 +282,7 @@ section {
 
 // Thoughts Page
 .thought-item {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid $border-color;
   
   &:last-child {
@@ -460,7 +290,7 @@ section {
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
     
     a {
@@ -477,7 +307,7 @@ section {
     color: $text-light;
     font-size: 0.875rem;
     display: block;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 }
 
