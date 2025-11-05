@@ -380,7 +380,77 @@ section {
   }
 }
 
-// Thoughts
+// Latest Thoughts Section
+.latest-thoughts {
+  background-color: $bg-light;
+}
+
+.thoughts-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.thought-preview-item {
+  padding: 2rem;
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: $primary-color;
+  }
+}
+
+.thought-preview-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  
+  a {
+    color: $text-color;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.thought-preview-date {
+  color: $text-light;
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.thought-preview-excerpt {
+  color: $text-light;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.thought-preview-link {
+  color: $primary-color;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// Thoughts Page
 .thought-item {
   padding: 2rem 0;
   border-bottom: 1px solid $border-color;

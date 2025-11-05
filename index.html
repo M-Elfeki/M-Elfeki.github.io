@@ -16,3 +16,32 @@ title: Home
     </div>
 </section>
 
+{% if site.posts.size > 0 %}
+<section class="latest-thoughts">
+    <div class="container">
+        <h2 class="section-title">Latest Thoughts</h2>
+        <div class="thoughts-preview">
+            {% for post in site.posts limit: 3 %}
+            <article class="thought-preview-item">
+                <h3 class="thought-preview-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <time datetime="{{ post.date | date_to_xmlschema }}" class="thought-preview-date">
+                    {{ post.date | date: "%B %d, %Y" }}
+                </time>
+                {% if post.excerpt %}
+                <div class="thought-preview-excerpt">
+                    {{ post.excerpt }}
+                </div>
+                {% endif %}
+                <a href="{{ post.url | relative_url }}" class="thought-preview-link">Read more →</a>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="section-footer">
+            <a href="{{ '/thoughts/' | relative_url }}" class="btn">View All Thoughts</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
