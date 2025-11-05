@@ -3,15 +3,15 @@
         <div class="container">
             <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
             <div class="nav-right">
-                <ul class="nav-menu">
-                    {% for item in site.nav %}
-                    <li>
-                        <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
-                            {{ item.title }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
+            <ul class="nav-menu">
+                {% for item in site.nav %}
+                <li>
+                    <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
+                        {{ item.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
                 <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
                     <svg class="dark-mode-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -28,11 +28,11 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                     </svg>
                 </button>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             </div>
         </div>
     </nav>

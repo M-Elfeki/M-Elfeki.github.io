@@ -1,24 +1,29 @@
 @import 'variables';
 
 section {
-  padding: 60px 0;
+  padding: $section-padding 0;
   transition: background-color 0.3s ease;
   
+  @media (max-width: $mobile) {
+    padding: $section-padding-mobile 0;
+  }
+  
   &:nth-child(even) {
-    background-color: var(--bg-light);
+    background-color: transparent;
   }
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 600;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   text-align: center;
   color: var(--text-color);
+  letter-spacing: -0.02em;
   
   @media (max-width: $mobile) {
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+    font-size: 1.875rem;
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -38,15 +43,16 @@ section {
 }
 
 .project-card {
-  padding: 1.5rem;
-  background-color: var(--bg-color);
+  padding: 2rem;
+  background-color: var(--bg-light);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   transition: all 0.3s ease;
   
   &:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -221,80 +227,152 @@ section {
 .contact-info {
   max-width: 600px;
   margin: 0 auto;
+  text-align: center;
   
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1.125rem;
+    line-height: 1.8;
     
     strong {
       color: var(--text-color);
       margin-right: 0.5rem;
+      font-weight: 600;
     }
     
     a {
       color: var(--primary-color);
+      transition: color 0.2s ease;
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
     }
   }
 }
 
 // Pages
 .page {
-  padding: 40px 0;
+  padding: 80px 0;
+  
+  @media (max-width: $mobile) {
+    padding: 60px 0;
+  }
 }
 
 .page-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  
+  @media (max-width: $mobile) {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
 .page-title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: $mobile) {
+    font-size: 2rem;
+  }
 }
 
 .page-subtitle {
   font-size: 1.125rem;
   color: var(--text-light);
+  font-weight: 400;
 }
 
 .page-content {
-  max-width: 800px;
+  max-width: 750px;
   margin: 0 auto;
   
+  > *:first-child {
+    margin-top: 0;
+  }
+  
   h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    
+    &:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
   }
   
   h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.375rem;
+  }
+  
+  ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+    li {
+      margin-bottom: 0.75rem;
+      line-height: 1.75;
+    }
+  }
+  
+  strong {
+    font-weight: 600;
+    color: var(--text-color);
   }
 }
 
 // Posts
 .post {
-  padding: 40px 0;
+  padding: 80px 0;
+  
+  @media (max-width: $mobile) {
+    padding: 60px 0;
+  }
 }
 
 .post-header {
   text-align: center;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
+  
+  @media (max-width: $mobile) {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
 .post-title {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  
+  @media (max-width: $mobile) {
+    font-size: 2rem;
+  }
 }
 
 .post-meta {
   color: var(--text-light);
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .post-tags {
@@ -306,28 +384,58 @@ section {
 
 .tag {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.375rem 1rem;
   background-color: var(--bg-light);
   color: var(--primary-color);
   border-radius: 20px;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
 }
 
 .post-content {
-  max-width: 800px;
+  max-width: 750px;
   margin: 0 auto;
+  line-height: 1.8;
+  
+  > *:first-child {
+    margin-top: 0;
+  }
   
   h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    
+    &:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
   }
   
   h3 {
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+  }
+  
+  h4 {
+    margin-top: 2rem;
     margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
   
   img {
@@ -341,42 +449,51 @@ section {
 
 // Latest Thoughts Section
 .latest-thoughts {
-  background-color: var(--bg-light);
-  border-top: 1px solid var(--border-color);
-  padding-top: 60px;
+  background-color: transparent;
+  padding-top: 80px;
+  
+  @media (max-width: $mobile) {
+    padding-top: 60px;
+  }
 }
 
 .thoughts-preview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 .thought-preview-item {
-  padding: 1.5rem;
-  background-color: var(--bg-color);
+  padding: 2rem;
+  background-color: var(--bg-light);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
   
   &:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
   }
 }
 
 .thought-preview-title {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   margin-bottom: 0.75rem;
+  line-height: 1.4;
   
   a {
     color: var(--text-color);
     transition: color 0.2s ease;
+    text-decoration: none;
     
     &:hover {
       color: var(--primary-color);
@@ -389,13 +506,15 @@ section {
   font-size: 0.875rem;
   display: block;
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .thought-preview-excerpt {
   color: var(--text-light);
   font-size: 0.9375rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .thought-preview-link {
@@ -403,29 +522,40 @@ section {
   font-weight: 500;
   font-size: 0.9375rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   
   &:hover {
     color: var(--secondary-color);
+    gap: 0.75rem;
   }
 }
 
 // Thoughts Page
 .thought-item {
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
   
   &:last-child {
     border-bottom: none;
   }
   
+  &:hover {
+    padding-left: 1rem;
+  }
+  
   h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
     
     a {
       color: var(--text-color);
       transition: color 0.2s ease;
+      text-decoration: none;
       
       &:hover {
         color: var(--primary-color);
@@ -437,14 +567,15 @@ section {
     color: var(--text-light);
     font-size: 0.875rem;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
   }
 }
 
 .thought-excerpt {
   color: var(--text-light);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.75;
   margin-top: 0.5rem;
 }
 
@@ -477,17 +608,25 @@ section {
 // Buttons
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 2rem;
   background-color: var(--primary-color);
   color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 500;
-  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
   
   &:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(108, 92, 231, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
   }
 }
 
