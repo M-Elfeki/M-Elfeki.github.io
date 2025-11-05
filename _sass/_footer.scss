@@ -1,10 +1,11 @@
 @import 'variables';
 
 .site-footer {
-  background-color: $bg-light;
+  background-color: var(--bg-light);
   padding: 2rem 0;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--border-color);
   margin-top: 3rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-content {
@@ -34,18 +35,18 @@
 }
 
 .social-link {
-  color: $text-color;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9375rem;
   padding: 0.5rem 1rem;
-  border: 1px solid $border-color;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
   transition: all 0.2s ease;
   
   &:hover {
-    border-color: $primary-color;
-    color: $primary-color;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
     transform: translateY(-2px);
   }
 }

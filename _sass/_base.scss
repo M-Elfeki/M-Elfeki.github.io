@@ -1,5 +1,25 @@
 @import 'variables';
 
+// CSS Variables for theme switching
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --text-color: #{$text-color-light};
+  --text-light: #{$text-light-light};
+  --bg-color: #{$bg-color-light};
+  --bg-light: #{$bg-light-light};
+  --border-color: #{$border-color-light};
+}
+
+// Dark mode CSS variables
+[data-theme="dark"] {
+  --text-color: #{$text-color-dark};
+  --text-light: #{$text-light-dark};
+  --bg-color: #{$bg-color-dark};
+  --bg-light: #{$bg-light-dark};
+  --border-color: #{$border-color-dark};
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,10 +34,11 @@ body {
   font-family: $font-family;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  color: $text-color;
-  background-color: $bg-color;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -36,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: $text-color;
+  color: var(--text-color);
 }
 
 h1 { font-size: 2.5rem; }
@@ -49,12 +70,12 @@ p {
 }
 
 a {
-  color: $primary-color;
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: $secondary-color;
+    color: var(--secondary-color);
   }
 }
 
@@ -62,16 +83,19 @@ a {
 code {
   font-family: 'Monaco', 'Menlo', monospace;
   font-size: 0.9em;
-  background-color: $bg-light;
+  background-color: var(--bg-light);
   padding: 0.2em 0.4em;
   border-radius: 3px;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
 }
 
 pre {
-  background-color: $bg-light;
+  background-color: var(--bg-light);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
+  transition: background-color 0.3s ease;
   
   code {
     background-color: transparent;

@@ -8,9 +8,13 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   transition: all 0.3s ease;
+  
+  [data-theme="dark"] & {
+    background-color: rgba(15, 23, 42, 0.95);
+  }
   
   .container {
     display: flex;
@@ -20,14 +24,75 @@
   }
 }
 
+.nav-brand-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .nav-brand {
   font-size: 1.25rem;
   font-weight: 600;
-  color: $text-color;
+  color: var(--text-color);
   text-decoration: none;
+  transition: color 0.3s ease;
   
   &:hover {
-    color: $primary-color;
+    color: var(--primary-color);
+  }
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: color 0.3s ease, transform 0.2s ease;
+  border-radius: 50%;
+  
+  &:hover {
+    background-color: var(--bg-light);
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  .dark-mode-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    transition: all 0.3s ease;
+    
+    .moon-icon {
+      opacity: 1;
+      transform: rotate(0deg);
+      transition: all 0.3s ease;
+    }
+    
+    .sun-icon {
+      opacity: 0;
+      transform: rotate(90deg);
+      transition: all 0.3s ease;
+    }
+  }
+  
+  [data-theme="light"] & {
+    .moon-icon {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+    
+    .sun-icon {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
   }
 }
 
@@ -43,8 +108,8 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: $bg-color;
-    border-bottom: 1px solid $border-color;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
     padding: 1rem 0;
     transform: translateY(-100%);
     opacity: 0;
@@ -60,14 +125,14 @@
   
   li {
     a {
-      color: $text-color;
+      color: var(--text-color);
       font-weight: 400;
       font-size: 0.9375rem;
       transition: color 0.2s ease;
       
       &:hover,
       &.active {
-        color: $primary-color;
+        color: var(--primary-color);
       }
     }
   }
@@ -89,7 +154,7 @@
   span {
     width: 24px;
     height: 2px;
-    background-color: $text-color;
+    background-color: var(--text-color);
     transition: all 0.3s ease;
   }
   

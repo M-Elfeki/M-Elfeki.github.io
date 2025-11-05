@@ -18,6 +18,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Set dark mode immediately to prevent flash -->
+    <script>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const theme = storedTheme || 'dark'; // Default to dark
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    
     <!-- MathJax -->
     {% if page.math %}
     <script type="text/javascript" async

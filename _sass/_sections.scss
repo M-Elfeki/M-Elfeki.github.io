@@ -2,9 +2,10 @@
 
 section {
   padding: 60px 0;
+  transition: background-color 0.3s ease;
   
   &:nth-child(even) {
-    background-color: $bg-light;
+    background-color: var(--bg-light);
   }
 }
 
@@ -13,7 +14,7 @@ section {
   font-weight: 600;
   margin-bottom: 2.5rem;
   text-align: center;
-  color: $text-color;
+  color: var(--text-color);
   
   @media (max-width: $mobile) {
     font-size: 1.75rem;
@@ -38,13 +39,13 @@ section {
 
 .project-card {
   padding: 1.5rem;
-  background-color: $bg-color;
-  border: 1px solid $border-color;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   
   &:hover {
-    border-color: $primary-color;
+    border-color: var(--primary-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 }
@@ -52,7 +53,7 @@ section {
 .project-title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: $primary-color;
+  color: var(--primary-color);
 }
 
 .project-image {
@@ -68,7 +69,7 @@ section {
 }
 
 .project-content {
-  color: $text-light;
+  color: var(--text-light);
   margin-bottom: 1rem;
   font-size: 0.9375rem;
   line-height: 1.7;
@@ -84,7 +85,7 @@ section {
   p {
     margin-bottom: 1rem;
     line-height: 1.7;
-    color: $text-light;
+    color: var(--text-light);
   }
   
   h2 {
@@ -92,7 +93,7 @@ section {
     font-weight: 600;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
-    color: $text-color;
+    color: var(--text-color);
     line-height: 1.4;
     
     &:first-of-type {
@@ -105,7 +106,7 @@ section {
     font-weight: 600;
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
-    color: $text-color;
+    color: var(--text-color);
     line-height: 1.4;
   }
   
@@ -114,7 +115,7 @@ section {
     font-weight: 600;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    color: $text-color;
+    color: var(--text-color);
   }
   
   ul, ol {
@@ -125,10 +126,10 @@ section {
     li {
       margin-bottom: 0.5rem;
       line-height: 1.6;
-      color: $text-light;
+      color: var(--text-light);
       
       &::marker {
-        color: $primary-color;
+        color: var(--primary-color);
       }
     }
   }
@@ -143,7 +144,7 @@ section {
   
   strong, b {
     font-weight: 600;
-    color: $text-color;
+    color: var(--text-color);
   }
   
   em, i {
@@ -153,14 +154,14 @@ section {
   code {
     font-family: 'Monaco', 'Menlo', monospace;
     font-size: 0.875em;
-    background-color: $bg-light;
+    background-color: var(--bg-light);
     padding: 0.2em 0.4em;
     border-radius: 3px;
-    color: $text-color;
+    color: var(--text-color);
   }
   
   pre {
-    background-color: $bg-light;
+    background-color: var(--bg-light);
     padding: 1rem;
     border-radius: 6px;
     overflow-x: auto;
@@ -173,28 +174,28 @@ section {
   }
   
   blockquote {
-    border-left: 3px solid $primary-color;
+    border-left: 3px solid var(--primary-color);
     padding-left: 1rem;
     margin-left: 0;
     margin-bottom: 1rem;
-    color: $text-light;
+    color: var(--text-light);
     font-style: italic;
   }
   
   a {
-    color: $primary-color;
+    color: var(--primary-color);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s ease;
     
     &:hover {
-      border-bottom-color: $primary-color;
+      border-bottom-color: var(--primary-color);
     }
   }
   
   hr {
     border: none;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid var(--border-color);
     margin: 1.5rem 0;
   }
 }
@@ -206,13 +207,13 @@ section {
 }
 
 .project-link {
-  color: $primary-color;
+  color: var(--primary-color);
   font-size: 0.9375rem;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
   
   &:hover {
-    border-bottom-color: $primary-color;
+    border-bottom-color: var(--primary-color);
   }
 }
 
@@ -226,12 +227,12 @@ section {
     font-size: 1.125rem;
     
     strong {
-      color: $text-color;
+      color: var(--text-color);
       margin-right: 0.5rem;
     }
     
     a {
-      color: $primary-color;
+      color: var(--primary-color);
     }
   }
 }
@@ -253,7 +254,7 @@ section {
 
 .page-subtitle {
   font-size: 1.125rem;
-  color: $text-light;
+  color: var(--text-light);
 }
 
 .page-content {
@@ -282,7 +283,7 @@ section {
   text-align: center;
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .post-title {
@@ -291,7 +292,7 @@ section {
 }
 
 .post-meta {
-  color: $text-light;
+  color: var(--text-light);
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
 }
@@ -306,8 +307,8 @@ section {
 .tag {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background-color: $bg-light;
-  color: $primary-color;
+  background-color: var(--bg-light);
+  color: var(--primary-color);
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -340,8 +341,8 @@ section {
 
 // Latest Thoughts Section
 .latest-thoughts {
-  background-color: $bg-light;
-  border-top: 1px solid $border-color;
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-color);
   padding-top: 60px;
 }
 
@@ -358,13 +359,13 @@ section {
 
 .thought-preview-item {
   padding: 1.5rem;
-  background-color: $bg-color;
-  border: 1px solid $border-color;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   transition: all 0.2s ease;
   
   &:hover {
-    border-color: $primary-color;
+    border-color: var(--primary-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 }
@@ -374,45 +375,45 @@ section {
   margin-bottom: 0.75rem;
   
   a {
-    color: $text-color;
+    color: var(--text-color);
     transition: color 0.2s ease;
     
     &:hover {
-      color: $primary-color;
+      color: var(--primary-color);
     }
   }
 }
 
 .thought-preview-date {
-  color: $text-light;
+  color: var(--text-light);
   font-size: 0.875rem;
   display: block;
   margin-bottom: 1rem;
 }
 
 .thought-preview-excerpt {
-  color: $text-light;
+  color: var(--text-light);
   font-size: 0.9375rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
 .thought-preview-link {
-  color: $primary-color;
+  color: var(--primary-color);
   font-weight: 500;
   font-size: 0.9375rem;
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: $secondary-color;
+    color: var(--secondary-color);
   }
 }
 
 // Thoughts Page
 .thought-item {
   padding: 1.5rem 0;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--border-color);
   
   &:last-child {
     border-bottom: none;
@@ -423,17 +424,17 @@ section {
     margin-bottom: 0.5rem;
     
     a {
-      color: $text-color;
+      color: var(--text-color);
       transition: color 0.2s ease;
       
       &:hover {
-        color: $primary-color;
+        color: var(--primary-color);
       }
     }
   }
   
   time {
-    color: $text-light;
+    color: var(--text-light);
     font-size: 0.875rem;
     display: block;
     margin-bottom: 0.5rem;
@@ -441,7 +442,7 @@ section {
 }
 
 .thought-excerpt {
-  color: $text-light;
+  color: var(--text-light);
   font-size: 1rem;
   line-height: 1.6;
   margin-top: 0.5rem;
@@ -453,7 +454,7 @@ section {
   li {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
     
     &:last-child {
       border-bottom: none;
@@ -467,7 +468,7 @@ section {
     }
     
     time {
-      color: $text-light;
+      color: var(--text-light);
       font-size: 0.875rem;
     }
   }
@@ -477,14 +478,14 @@ section {
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 6px;
   font-weight: 500;
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
