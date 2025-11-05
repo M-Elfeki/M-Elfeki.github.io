@@ -11,8 +11,8 @@
 }
 
 .profile-picture {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 2rem;
@@ -25,8 +25,8 @@
   }
   
   @media (max-width: $mobile) {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
   }
 }
 

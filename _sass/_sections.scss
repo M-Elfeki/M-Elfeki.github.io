@@ -380,6 +380,44 @@ section {
   }
 }
 
+// Thoughts
+.thought-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid $border-color;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    
+    a {
+      color: $text-color;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  
+  time {
+    color: $text-light;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.thought-excerpt {
+  color: $text-light;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
 .related-posts-list {
   list-style: none;
   

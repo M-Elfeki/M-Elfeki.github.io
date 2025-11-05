@@ -2,18 +2,10 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-section">
-                <p class="footer-text">{{ site.footer.copyright | default: "© 2024" }} {{ site.title }}</p>
-            </div>
-            <div class="footer-section">
                 <div class="social-links">
                     {% if site.email %}
                     <a href="mailto:{{ site.email }}" class="social-link" aria-label="Email">
                         Email
-                    </a>
-                    {% endif %}
-                    {% if site.github %}
-                    <a href="https://github.com/{{ site.github }}" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
-                        GitHub
                     </a>
                     {% endif %}
                     {% if site.linkedin %}

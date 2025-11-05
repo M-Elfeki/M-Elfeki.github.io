@@ -25,7 +25,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-scholar
   - jekyll-paginate-v2
 
 # Exclude from processing
@@ -42,26 +41,22 @@ exclude:
 
 # Collections
 collections:
-  news:
-    output: true
-    sort_by: date
-    sort_direction: reverse
   projects:
     output: true
     sort_by: date
     sort_direction: reverse
 
-# Jekyll Scholar Configuration
-scholar:
-  style: apa
-  locale: en
-  sort_by: year
-  order: descending
-  group_by: year
-  source: _bibliography/papers.bib
-  bibliography_template: ""
-  details_layout: bibtex
-  query: "@*"
+# Jekyll Scholar Configuration (disabled - not using publications)
+# scholar:
+#   style: apa
+#   locale: en
+#   sort_by: year
+#   order: descending
+#   group_by: year
+#   source: _bibliography
+#   bibliography_template: ""
+#   details_layout: bibtex.html
+#   query: "@*"
 
 # Pagination
 pagination:
@@ -81,20 +76,16 @@ theme_color: "#6c5ce7"  # Purple theme (al-folio style)
 nav:
   - title: About
     url: /about/
-  - title: Research
-    url: /research/
-  - title: Publications
-    url: /publications/
   - title: Projects
     url: /projects/
-  - title: News
-    url: /news/
+  - title: Thoughts
+    url: /thoughts/
   - title: Contact
     url: /contact/
 
 # Footer
 footer:
-  copyright: "© 2024 Mohamed Elfeki. All rights reserved."
+  copyright: ""
 
 # Related Posts
 related_blog_posts:
