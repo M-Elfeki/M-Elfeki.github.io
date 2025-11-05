@@ -2,11 +2,12 @@
 (function() {
   // Get stored theme or default to 'dark'
   const storedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = storedTheme || (prefersDark ? 'dark' : 'dark'); // Default to dark
+  const theme = storedTheme || 'dark'; // Default to dark
   
   // Apply theme immediately to prevent flash
-  document.documentElement.setAttribute('data-theme', theme);
+  if (document.documentElement) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
 })();
 
 // Mobile menu toggle
@@ -18,14 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get current theme from localStorage or default to 'dark'
   const getTheme = () => {
     const stored = localStorage.getItem('theme');
-    if (stored) return stored;
+    if (stored === 'light' || stored === 'dark') {
+      return stored;
+    }
     return 'dark'; // Default to dark mode
   };
   
   // Set theme
   const setTheme = (theme) => {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    if (theme === 'light' || theme === 'dark') {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
   };
   
   // Initialize theme
@@ -34,8 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Toggle dark mode
   if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', function() {
-      const currentTheme = html.getAttribute('data-theme');
+    darkModeToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const currentTheme = html.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
     });

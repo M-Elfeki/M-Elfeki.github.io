@@ -24,12 +24,6 @@
   }
 }
 
-.nav-brand-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .nav-brand {
   font-size: 1.25rem;
   font-weight: 600;
@@ -42,6 +36,16 @@
   }
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  
+  @media (max-width: $mobile) {
+    gap: 1rem;
+  }
+}
+
 .dark-mode-toggle {
   background: none;
   border: none;
@@ -51,12 +55,15 @@
   align-items: center;
   justify-content: center;
   color: var(--text-color);
-  transition: color 0.3s ease, transform 0.2s ease;
-  border-radius: 50%;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  position: relative;
   
   &:hover {
     background-color: var(--bg-light);
-    transform: scale(1.1);
+    color: var(--primary-color);
   }
   
   &:active {
@@ -68,28 +75,27 @@
     height: 20px;
     stroke: currentColor;
     fill: none;
-    transition: all 0.3s ease;
-    
-    .moon-icon {
-      opacity: 1;
-      transform: rotate(0deg);
-      transition: all 0.3s ease;
-    }
-    
-    .sun-icon {
-      opacity: 0;
-      transform: rotate(90deg);
-      transition: all 0.3s ease;
-    }
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dark-mode-icon.moon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  
+  .dark-mode-icon.sun {
+    opacity: 0;
+    transform: rotate(90deg);
   }
   
   [data-theme="light"] & {
-    .moon-icon {
+    .dark-mode-icon.moon {
       opacity: 0;
       transform: rotate(-90deg);
     }
     
-    .sun-icon {
+    .dark-mode-icon.sun {
       opacity: 1;
       transform: rotate(0deg);
     }
@@ -115,11 +121,17 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    gap: 0;
     
     &.active {
       transform: translateY(0);
       opacity: 1;
       visibility: visible;
+    }
+    
+    li {
+      width: 100%;
+      padding: 0.5rem 1rem;
     }
   }
   
