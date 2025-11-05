@@ -12,6 +12,7 @@
 }
 
 // Dark mode CSS variables
+html[data-theme="dark"],
 [data-theme="dark"] {
   --text-color: #{$text-color-dark};
   --text-light: #{$text-light-dark};

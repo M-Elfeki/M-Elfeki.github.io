@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentTheme = html.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
+      
+      // Force a repaint to ensure styles are applied
+      document.body.offsetHeight; // Trigger reflow
     });
   }
   
