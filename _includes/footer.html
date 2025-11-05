@@ -1,0 +1,39 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <p class="footer-text">{{ site.footer.copyright | default: "© 2024" }} {{ site.title }}</p>
+            </div>
+            <div class="footer-section">
+                <div class="social-links">
+                    {% if site.email %}
+                    <a href="mailto:{{ site.email }}" class="social-link" aria-label="Email">
+                        Email
+                    </a>
+                    {% endif %}
+                    {% if site.github %}
+                    <a href="https://github.com/{{ site.github }}" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+                        GitHub
+                    </a>
+                    {% endif %}
+                    {% if site.linkedin %}
+                    <a href="https://linkedin.com/in/{{ site.linkedin }}" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        LinkedIn
+                    </a>
+                    {% endif %}
+                    {% if site.scholar_userid %}
+                    <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" class="social-link" target="_blank" rel="noopener" aria-label="Google Scholar">
+                        Scholar
+                    </a>
+                    {% endif %}
+                    {% if site.twitter %}
+                    <a href="https://twitter.com/{{ site.twitter }}" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
+                        Twitter
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+

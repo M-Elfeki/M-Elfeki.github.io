@@ -1,0 +1,56 @@
+@import 'variables';
+
+.site-footer {
+  background-color: $bg-light;
+  padding: 3rem 0;
+  border-top: 1px solid $border-color;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-text {
+  color: $text-light;
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-link {
+  color: $text-color;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+    transform: translateY(-2px);
+  }
+}
+

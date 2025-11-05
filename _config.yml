@@ -1,0 +1,104 @@
+# Site Settings
+title: Mohamed Elfeki
+tagline: AI Researcher
+description: >-
+  Exploring the frontiers of artificial intelligence, machine learning, and their 
+  applications to solve real-world problems.
+url: https://melfeki.github.io
+baseurl: ""
+
+# Author/Personal Information
+first_name: Mohamed
+last_name: Elfeki
+nickname: Mohamed Elfeki
+email: your.email@example.com
+github: M-Elfeki
+linkedin: yourprofile
+scholar_userid: your_scholar_id
+twitter: ""
+orcid: ""
+
+# Jekyll Configuration
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-scholar
+  - jekyll-paginate-v2
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - deploy.sh
+  - setup-github-auth.sh
+  - .git
+  - .gitignore
+
+# Collections
+collections:
+  news:
+    output: true
+    sort_by: date
+    sort_direction: reverse
+  projects:
+    output: true
+    sort_by: date
+    sort_direction: reverse
+
+# Jekyll Scholar Configuration
+scholar:
+  style: apa
+  locale: en
+  sort_by: year
+  order: descending
+  group_by: year
+  source: _bibliography/papers.bib
+  bibliography_template: ""
+  details_layout: bibtex
+  query: "@*"
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: '/page/:num/'
+  title: ':title - Page :num'
+
+# Social Media Preview
+serve_og_meta: true
+og_image: /assets/img/og-image.png
+
+# Theme
+theme_color: "#6c5ce7"  # Purple theme (al-folio style)
+
+# Navigation
+nav:
+  - title: About
+    url: /about/
+  - title: Research
+    url: /research/
+  - title: Publications
+    url: /publications/
+  - title: Projects
+    url: /projects/
+  - title: News
+    url: /news/
+  - title: Contact
+    url: /contact/
+
+# Footer
+footer:
+  copyright: "© 2024 Mohamed Elfeki. All rights reserved."
+
+# Related Posts
+related_blog_posts:
+  enabled: true
+  max_related: 3
+  min_common_tags: 1
+

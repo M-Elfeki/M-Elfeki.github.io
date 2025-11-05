@@ -1,146 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Elfeki - AI Researcher">
-    <title>Mohamed Elfeki | AI Researcher</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#home" class="nav-brand">Mohamed Elfeki</a>
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+---
+layout: default
+title: Home
+---
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <img src="resources/profile_pict.png" alt="Mohamed Elfeki" class="profile-picture">
-                <h1 class="hero-title">Mohamed Elfeki</h1>
-                <p class="hero-subtitle">AI Researcher</p>
-                <p class="hero-description">
-                    Exploring the frontiers of artificial intelligence, machine learning, and their applications 
-                    to solve real-world problems.
-                </p>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <img src="{{ '/resources/profile_pict.png' | relative_url }}" alt="{{ site.title }}" class="profile-picture">
+            <h1 class="hero-title">{{ site.first_name }} {{ site.last_name }}</h1>
+            <p class="hero-subtitle">{{ site.tagline }}</p>
+            <p class="hero-description">
+                {{ site.description }}
+            </p>
+        </div>
+    </div>
+</section>
+
+{% if site.news.size > 0 %}
+<section class="news-preview">
+    <div class="container">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-list">
+            {% for news_item in site.news limit: 5 %}
+            <article class="news-item">
+                <div class="news-date">{{ news_item.date | date: "%B %d, %Y" }}</div>
+                <div class="news-content">
+                    <h3 class="news-title">{{ news_item.title }}</h3>
+                    {% if news_item.content %}
+                    <div class="news-excerpt">{{ news_item.content | markdownify }}</div>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="section-footer">
+            <a href="{{ '/news/' | relative_url }}" class="btn">View All News</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="research-interests">
+    <div class="container">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="research-grid">
+            <div class="research-item">
+                <h3>Deep Learning</h3>
+                <p>Neural architectures, optimization, and training methodologies</p>
+            </div>
+            <div class="research-item">
+                <h3>NLP</h3>
+                <p>Language models, text understanding, and generation</p>
+            </div>
+            <div class="research-item">
+                <h3>Computer Vision</h3>
+                <p>Image recognition, object detection, and scene understanding</p>
+            </div>
+            <div class="research-item">
+                <h3>AI Ethics</h3>
+                <p>Fairness, transparency, and responsible AI development</p>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <p>
-                    I am an AI researcher passionate about advancing the field of artificial intelligence through 
-                    innovative research and practical applications. My work focuses on developing novel algorithms 
-                    and models that push the boundaries of what's possible in machine learning.
-                </p>
-                <p>
-                    My research interests span deep learning, neural networks, natural language processing, 
-                    computer vision, and the ethical implications of AI systems.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research" class="research">
-        <div class="container">
-            <h2 class="section-title">Research Interests</h2>
-            <div class="research-grid">
-                <div class="research-item">
-                    <h3>Deep Learning</h3>
-                    <p>Neural architectures, optimization, and training methodologies</p>
-                </div>
-                <div class="research-item">
-                    <h3>NLP</h3>
-                    <p>Language models, text understanding, and generation</p>
-                </div>
-                <div class="research-item">
-                    <h3>Computer Vision</h3>
-                    <p>Image recognition, object detection, and scene understanding</p>
-                </div>
-                <div class="research-item">
-                    <h3>AI Ethics</h3>
-                    <p>Fairness, transparency, and responsible AI development</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="publications">
-        <div class="container">
-            <h2 class="section-title">Publications</h2>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <h3>Paper Title</h3>
-                    <p class="authors">Mohamed Elfeki, Co-Author</p>
-                    <p class="venue">Conference/Journal Name, Year</p>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">arXiv</a>
-                        <a href="#" class="pub-link">Code</a>
-                    </div>
-                </div>
-                <div class="publication-item">
-                    <h3>Another Paper Title</h3>
-                    <p class="authors">Mohamed Elfeki, Co-Author</p>
-                    <p class="venue">Conference/Journal Name, Year</p>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">arXiv</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <p>Feel free to reach out for collaborations, discussions, or opportunities.</p>
-                <div class="contact-links">
-                    <a href="mailto:your.email@example.com" class="contact-link">
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/M-Elfeki" class="contact-link" target="_blank">
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="#" class="contact-link">
-                        <span>Google Scholar</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Mohamed Elfeki</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    </div>
+</section>
