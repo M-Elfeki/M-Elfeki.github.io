@@ -214,6 +214,8 @@ section {
 // Latest Thoughts Section
 .latest-thoughts {
   background-color: $bg-light;
+  border-top: 1px solid $border-color;
+  padding-top: 60px;
 }
 
 .thoughts-preview {

@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 ---
 
-## Projects
+<h2>Projects</h2>
 
 <div class="projects-grid">
 {% for project in site.projects %}
@@ -16,7 +16,7 @@ permalink: /projects/
         </div>
         {% endif %}
         <div class="project-content">
-            {{ project.content }}
+            {{ project.content | markdownify }}
         </div>
         {% if project.links %}
         <div class="project-links">
@@ -28,4 +28,8 @@ permalink: /projects/
     </article>
 {% endfor %}
 </div>
+
+{% if site.projects.size == 0 %}
+<p>No projects yet. Check back soon!</p>
+{% endif %}
 

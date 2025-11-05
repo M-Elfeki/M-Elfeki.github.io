@@ -1,8 +1,9 @@
 @import 'variables';
 
 .hero {
-  padding: 100px 0 60px;
+  padding: 100px 0 80px;
   text-align: center;
+  border-bottom: 1px solid $border-color;
   
   .container {
     max-width: 800px;
