@@ -66,10 +66,10 @@ body {
   min-height: calc(100vh - 200px);
   padding-top: 0;
   
-  // Hero section handles its own padding
+  // Hero section handles its own padding and margin
   > section.hero {
     padding-top: 0;
-    margin-top: 0;
+    // margin-top is set in _hero.scss, don't override it
   }
   
   > section:first-child:not(.hero) {
