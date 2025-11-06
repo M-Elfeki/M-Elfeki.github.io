@@ -69,4 +69,6 @@ nav:
 footer:
   copyright: ""
 
-
+# Include resources folder
+include:
+  - resources

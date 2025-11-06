@@ -40,6 +40,8 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
@@ -56,11 +58,19 @@ section {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  will-change: transform;
   
   &:hover {
     border-color: var(--primary-color);
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(108, 92, 231, 0.15);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 0.2s ease;
+    &:hover {
+      transform: none;
+    }
   }
   
   .project-header {
@@ -289,6 +299,9 @@ section {
   margin-bottom: 4rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: $mobile) {
     margin-bottom: 3rem;
@@ -314,7 +327,7 @@ section {
 }
 
 .page-content {
-  max-width: 750px;
+  max-width: 800px;
   margin: 0 auto;
   
   > *:first-child {
@@ -484,6 +497,9 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
@@ -743,6 +759,8 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
@@ -883,6 +901,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .thought-item {
@@ -1017,6 +1037,13 @@ section {
 // About Page Styles
 .about-intro {
   margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (max-width: $mobile) {
+    margin-bottom: 3rem;
+  }
   
   .lead-text {
     font-size: 1.25rem;
@@ -1031,6 +1058,10 @@ section {
     line-height: 1.75;
     color: var(--text-light);
     margin-bottom: 1.25rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -1040,12 +1071,19 @@ section {
   margin-top: 4rem;
   padding-top: 4rem;
   border-top: 1px solid var(--border-color);
+  
+  @media (max-width: $mobile) {
+    margin-top: 3rem;
+    padding-top: 3rem;
+  }
 }
 
 // Timeline
 .timeline {
   position: relative;
   padding-left: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
   
   &::before {
     content: '';
@@ -1163,9 +1201,12 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1225,11 +1266,14 @@ section {
 // Languages
 .languages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
 
@@ -1241,7 +1285,10 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: translateY(0);
+  will-change: transform;
   
   &:hover {
     border-color: var(--primary-color);
@@ -1249,15 +1296,24 @@ section {
     box-shadow: 0 12px 32px rgba(108, 92, 231, 0.15);
   }
   
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 0.2s ease;
+    &:hover {
+      transform: none;
+    }
+  }
+  
   .language-name {
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--text-color);
+    margin-bottom: 0.25rem;
   }
   
   .language-level {
     font-size: 0.9375rem;
     color: var(--text-light);
+    line-height: 1.5;
   }
 }
 
@@ -1294,9 +1350,13 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1358,9 +1418,13 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1408,9 +1472,15 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
   }
 }
 

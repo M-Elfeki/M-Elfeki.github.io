@@ -8,7 +8,7 @@ title: Home
     <div class="container">
         <div class="hero-content">
             <div class="profile-wrapper">
-                <img src="{{ '/resources/profile_pict.png' | relative_url }}" alt="{{ site.title }}" class="profile-picture">
+                <img src="{{ '/resources/profile_pict.png' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" alt="{{ site.title }}" class="profile-picture" loading="eager">
                 <div class="profile-glow"></div>
             </div>
             <h1 class="hero-title">

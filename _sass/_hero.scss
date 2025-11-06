@@ -69,6 +69,7 @@
   display: block;
   position: relative;
   z-index: 2;
+  will-change: transform;
   
   &:hover {
     transform: translateY(-6px) scale(1.02);
@@ -80,6 +81,13 @@
     width: 160px;
     height: 160px;
     margin-bottom: 2rem;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover {
+      transform: none;
+    }
   }
 }
 
@@ -194,9 +202,16 @@
   transform: translateX(-50%);
   z-index: 2;
   animation: bounce 2s infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
   
   @media (max-width: $mobile) {
     bottom: 20px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
   }
 }
 

@@ -10,8 +10,18 @@
   }
 })();
 
-// Simple fade-in animation on scroll
+// Simple fade-in animation on scroll with fallback
 const observeElements = () => {
+  // Check if IntersectionObserver is supported
+  if (typeof IntersectionObserver === 'undefined') {
+    // Fallback: show all elements immediately
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+    return;
+  }
+
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -28,12 +38,15 @@ const observeElements = () => {
   }, observerOptions);
 
   // Observe elements with data-aos attribute
-  document.querySelectorAll('[data-aos]').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
+  const aosElements = document.querySelectorAll('[data-aos]');
+  if (aosElements.length > 0) {
+    aosElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  }
 };
 
 // Mobile menu toggle
@@ -135,21 +148,51 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize scroll animations
   observeElements();
   
-  // Parallax effect for hero background (subtle)
+  // Parallax effect for hero background (subtle) with error handling
   const hero = document.querySelector('.hero');
   if (hero) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= hero.offsetHeight) {
-        const parallax = currentScroll * 0.3;
-        const heroBackground = hero.querySelector('.hero-background');
-        if (heroBackground) {
-          heroBackground.style.transform = `translateY(${parallax}px)`;
+    const heroBackground = hero.querySelector('.hero-background');
+    if (heroBackground) {
+      let ticking = false;
+      const handleScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            try {
+              const currentScroll = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+              if (currentScroll <= hero.offsetHeight) {
+                const parallax = currentScroll * 0.3;
+                heroBackground.style.transform = `translateY(${parallax}px)`;
+              }
+              ticking = false;
+            } catch (e) {
+              ticking = false;
+            }
+          });
+          ticking = true;
         }
+      };
+      
+      // Use passive listener for better performance
+      if (window.addEventListener) {
+        window.addEventListener('scroll', handleScroll, { passive: true });
       }
-      lastScroll = currentScroll;
-    }, { passive: true });
+    }
+    
+    // Hide scroll indicator when user scrolls
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      let scrollTimeout;
+      const hideOnScroll = () => {
+        scrollIndicator.style.opacity = '0';
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          if (window.pageYOffset < 100) {
+            scrollIndicator.style.opacity = '1';
+          }
+        }, 1000);
+      };
+      window.addEventListener('scroll', hideOnScroll, { passive: true });
+    }
   }
   
   // Add hover effect to cards
@@ -163,24 +206,103 @@ document.addEventListener('DOMContentLoaded', function() {
   // Smooth reveal for timeline items
   const timelineItems = document.querySelectorAll('.timeline-item');
   if (timelineItems.length > 0) {
-    const timelineObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateX(0)';
-          }, index * 100);
-          timelineObserver.unobserve(entry.target);
-        }
+    if (typeof IntersectionObserver !== 'undefined') {
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateX(0)';
+            }, index * 100);
+            timelineObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      timelineItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        timelineObserver.observe(item);
       });
-    }, { threshold: 0.1 });
-    
-    timelineItems.forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateX(-20px)';
-      item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      timelineObserver.observe(item);
-    });
+    } else {
+      // Fallback: show all timeline items immediately
+      timelineItems.forEach(item => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      });
+    }
+  }
+
+  // Animate language items on scroll
+  const languageItems = document.querySelectorAll('.language-item');
+  if (languageItems.length > 0) {
+    if (typeof IntersectionObserver !== 'undefined') {
+      const languageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+            languageObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      languageItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        languageObserver.observe(item);
+      });
+    } else {
+      // Fallback: show all language items immediately
+      languageItems.forEach(item => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      });
+    }
+  }
+
+  // Smooth scroll behavior with fallback
+  if (!('scrollBehavior' in document.documentElement.style)) {
+    // Polyfill for smooth scroll if not supported
+    const smoothScrollPolyfill = () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href !== '#' && href !== '') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              const offsetTop = target.offsetTop - 80;
+              window.scrollTo({
+                top: offsetTop,
+                behavior: 'auto'
+              });
+              // Fallback animation
+              let currentPosition = window.pageYOffset;
+              const distance = offsetTop - currentPosition;
+              const duration = 500;
+              let start = null;
+              
+              function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                const percentage = Math.min(progress / duration, 1);
+                window.scrollTo(0, currentPosition + distance * percentage);
+                if (progress < duration) {
+                  window.requestAnimationFrame(step);
+                }
+              }
+              window.requestAnimationFrame(step);
+            }
+          }
+        });
+      });
+    };
+    smoothScrollPolyfill();
   }
 });
 

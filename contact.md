@@ -8,9 +8,6 @@ permalink: /contact/
     <p class="lead-text">
         I'm always interested in hearing about new research opportunities, collaborations, or interesting projects. Feel free to reach out through any of the channels below.
     </p>
-    <p>
-        Whether you're a fellow researcher, a student with questions, or someone interested in AI, I'd be happy to connect. I'm particularly interested in discussions about machine learning, natural language processing, computer vision, and the ethical implications of AI.
-    </p>
 </div>
 
 <section class="contact-methods">
@@ -67,49 +64,6 @@ permalink: /contact/
             <p>@{{ site.twitter }}</p>
         </a>
         {% endif %}
-    </div>
-</section>
-
-<section class="research-interests-section">
-    <h2 class="section-heading">Research Interests</h2>
-    <div class="interests-grid">
-        <div class="interest-card">
-            <div class="interest-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-            </div>
-            <h3>Neural Architecture Search</h3>
-            <p>Automating the design of efficient neural networks</p>
-        </div>
-        <div class="interest-card">
-            <div class="interest-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                </svg>
-            </div>
-            <h3>Interpretable AI</h3>
-            <p>Making complex models more understandable</p>
-        </div>
-        <div class="interest-card">
-            <div class="interest-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
-            </div>
-            <h3>Efficient Deep Learning</h3>
-            <p>Reducing computational requirements while maintaining performance</p>
-        </div>
-        <div class="interest-card">
-            <div class="interest-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-            </div>
-            <h3>AI Ethics</h3>
-            <p>Ensuring AI systems are fair, transparent, and beneficial</p>
-        </div>
     </div>
 </section>
 
