@@ -69,6 +69,7 @@ body {
   // Hero section handles its own padding
   > section.hero {
     padding-top: 0;
+    margin-top: 0;
   }
   
   > section:first-child:not(.hero) {

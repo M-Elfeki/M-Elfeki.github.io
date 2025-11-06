@@ -37,7 +37,7 @@ title: Home
             <p class="section-description">Insights on AI, machine learning, and technology</p>
         </div>
         <div class="thoughts-preview">
-            {% for post in site.posts limit: 3 %}
+            {% for post in site.posts limit: 2 %}
             <article class="thought-preview-item" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
                 <div class="thought-preview-header">
                     <time datetime="{{ post.date | date_to_xmlschema }}" class="thought-preview-date">
