@@ -4,44 +4,104 @@ title: Home
 ---
 
 <section class="hero">
+    <div class="hero-background"></div>
     <div class="container">
         <div class="hero-content">
-            <img src="{{ '/resources/profile_pict.png' | relative_url }}" alt="{{ site.title }}" class="profile-picture">
-            <h1 class="hero-title">{{ site.first_name }} {{ site.last_name }}</h1>
+            <div class="profile-wrapper">
+                <img src="{{ '/resources/profile_pict.png' | relative_url }}" alt="{{ site.title }}" class="profile-picture">
+                <div class="profile-glow"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-name">{{ site.first_name }} {{ site.last_name }}</span>
+            </h1>
             <p class="hero-subtitle">{{ site.tagline }}</p>
             <p class="hero-description">
                 {{ site.description }}
             </p>
+            <div class="hero-cta">
+                <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">Learn More</a>
+                <a href="{{ '/contact/' | relative_url }}" class="btn btn-secondary">Get in Touch</a>
+            </div>
         </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
     </div>
 </section>
 
 {% if site.posts.size > 0 %}
 <section class="latest-thoughts">
     <div class="container">
-        <h2 class="section-title">Latest Thoughts</h2>
+        <div class="section-header">
+            <h2 class="section-title">Latest Thoughts</h2>
+            <p class="section-description">Insights on AI, machine learning, and technology</p>
+        </div>
         <div class="thoughts-preview">
             {% for post in site.posts limit: 3 %}
-            <article class="thought-preview-item">
+            <article class="thought-preview-item" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+                <div class="thought-preview-header">
+                    <time datetime="{{ post.date | date_to_xmlschema }}" class="thought-preview-date">
+                        {{ post.date | date: "%B %d, %Y" }}
+                    </time>
+                    <div class="thought-preview-badge">Article</div>
+                </div>
                 <h3 class="thought-preview-title">
                     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                 </h3>
-                <time datetime="{{ post.date | date_to_xmlschema }}" class="thought-preview-date">
-                    {{ post.date | date: "%B %d, %Y" }}
-                </time>
                 {% if post.excerpt %}
                 <div class="thought-preview-excerpt">
                     {{ post.excerpt }}
                 </div>
                 {% endif %}
-                <a href="{{ post.url | relative_url }}" class="thought-preview-link">Read more →</a>
+                <a href="{{ post.url | relative_url }}" class="thought-preview-link">
+                    <span>Read more</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </article>
             {% endfor %}
         </div>
         <div class="section-footer">
-            <a href="{{ '/thoughts/' | relative_url }}" class="btn">View All Thoughts</a>
+            <a href="{{ '/thoughts/' | relative_url }}" class="btn btn-outline">View All Thoughts</a>
         </div>
     </div>
 </section>
 {% endif %}
+
+<section class="quick-links">
+    <div class="container">
+        <div class="links-grid">
+            <a href="{{ '/projects/' | relative_url }}" class="quick-link-card">
+                <div class="quick-link-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Projects</h3>
+                <p>Research and development work</p>
+            </a>
+            <a href="{{ '/about/' | relative_url }}" class="quick-link-card">
+                <div class="quick-link-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h3>About</h3>
+                <p>My background and experience</p>
+            </a>
+            <a href="{{ '/contact/' | relative_url }}" class="quick-link-card">
+                <div class="quick-link-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <h3>Contact</h3>
+                <p>Let's connect and collaborate</p>
+            </a>
+        </div>
+    </div>
+</section>
 

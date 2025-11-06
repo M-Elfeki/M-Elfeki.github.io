@@ -3,8 +3,9 @@ layout: post
 title: The Three-Layer Spectrum of Consciousness
 date: 2025-03-23
 tags: [Consciousness, Philosophy, Neuroscience, AI]
-excerpt: A unified theory of consciousness as a continuous gradient with three overlapping regions: Reaction, Reflection, and Self.
+excerpt: "A unified theory of consciousness as a continuous gradient with three overlapping regions: Reaction, Reflection, and Self."
 ---
+
 
 Consciousness is one of the deepest puzzles we face. One way to make sense of it is through the **Three-Layer Spectrum of Consciousness**—a continuous gradient with three overlapping regions: **Reaction**, **Reflection**, and **Self**. This idea blends insights from neuroscience, psychology, AI, and Buddhist thought. Instead of thinking of consciousness as something binary or uniquely human, it helps to see it as a spectrum—one that shows up in different ways across species, systems, and states of mind. By connecting evolution, cognition, and inner experience, this model offers a clearer view of how different forms of awareness help us—and other beings—navigate the world.
 

@@ -10,6 +10,32 @@
   }
 })();
 
+// Simple fade-in animation on scroll
+const observeElements = () => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements with data-aos attribute
+  document.querySelectorAll('[data-aos]').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+};
+
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
   // Dark mode toggle
@@ -105,5 +131,56 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     }
   });
+  
+  // Initialize scroll animations
+  observeElements();
+  
+  // Parallax effect for hero background (subtle)
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= hero.offsetHeight) {
+        const parallax = currentScroll * 0.3;
+        const heroBackground = hero.querySelector('.hero-background');
+        if (heroBackground) {
+          heroBackground.style.transform = `translateY(${parallax}px)`;
+        }
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+  }
+  
+  // Add hover effect to cards
+  const cards = document.querySelectorAll('.project-card, .thought-preview-item, .quick-link-card, .contact-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+  });
+  
+  // Smooth reveal for timeline items
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  if (timelineItems.length > 0) {
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+          }, index * 100);
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    timelineItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateX(-20px)';
+      item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      timelineObserver.observe(item);
+    });
+  }
 });
 
